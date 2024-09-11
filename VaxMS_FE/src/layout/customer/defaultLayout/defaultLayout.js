@@ -1,18 +1,20 @@
-import Headers from "../header/header";
-import Footer from "../footer/footer"
-import ChatFrame from "../../../pages/customer/chat"
+// DefaultLayout.js
+import React from 'react';
+import Header from "../header/header";
+import Footer from "../footer/footer";
 
-function DefaultLayout({children}){
-    return (
-        <div>
-            <Headers/>
-            <div className="main-content-web">
-            {children}
-            </div>
-            <Footer/>
-            <ChatFrame/>
+function DefaultLayout({ children }) {
+  return (
+    <div>
+      <Header />
+      <div className="container-web"> {/* Thêm class container-web vào đây */}
+        <div className="main-content-web">
+          {children}
         </div>
-    );
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default DefaultLayout;

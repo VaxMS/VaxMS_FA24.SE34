@@ -14,9 +14,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import * as React from 'react';
 import LichDaDangKy from './lichdadangky';
-import DoiMatKhau from './doimatkhau';
-import CapNhatThongTin from './capnhatthongtin';
-import FeedBack from './feedback';
 
 
 
@@ -33,7 +30,7 @@ function TaiKhoan(){
     return(
      <div className='container-fluid'>
         <div className='container-web acctaikhoan'>
-        <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', minHeight:500 }} >
+        <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', minHeight:500 }}>
             <Tabs
                 orientation="vertical"
                 variant="scrollable"
@@ -48,19 +45,19 @@ function TaiKhoan(){
                 <Tab label="Phản hồi" {...a11yProps(3)} />
                 <Tab label="Thanh toán" {...a11yProps(4)} />
             </Tabs>
-            <TabPanel value={value} index={0} style={{width:"100%"}}>
-                <CapNhatThongTin/>
+            <TabPanel value={value} index={0}>
+                Item One
             </TabPanel>
-            <TabPanel value={value} index={1} style={{width:"100%"}}>
+            <TabPanel value={value} index={1}>
                 <LichDaDangKy/>
             </TabPanel>
-            <TabPanel value={value} index={2} style={{width:"100%"}}>
-                <DoiMatKhau/>
+            <TabPanel value={value} index={2}>
+                Item Three
             </TabPanel>
-            <TabPanel value={value} index={3} style={{width:"100%"}}>
-                <FeedBack/>
+            <TabPanel value={value} index={3}>
+                Item Four
             </TabPanel>
-            <TabPanel value={value} index={4} style={{width:"100%"}}>
+            <TabPanel value={value} index={4}>
                 Item Five
             </TabPanel>
         </Box>

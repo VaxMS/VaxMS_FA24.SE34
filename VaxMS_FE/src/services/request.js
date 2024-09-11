@@ -3,7 +3,7 @@ var firstUrl = 'http://localhost:8080'
 async function uploadSingleFile(filePath) {
     const formData = new FormData()
     formData.append("file", filePath.files[0])
-    var urlUpload = firstUrl+'/api/public/upload-file';
+    var urlUpload = 'http://localhost:8080/api/public/upload-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData

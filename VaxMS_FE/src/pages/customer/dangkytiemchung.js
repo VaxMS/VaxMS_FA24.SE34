@@ -78,22 +78,24 @@ async function taoLichTiemChung(event) {
         "vaccineSchedule": {"id":vacxinScheduleChoose.id},
     }
     console.log(lichtiem)
-
-    window.localStorage.setItem('lichtiem', JSON.stringify(lichtiem));
-
-    var payment = {
-        "idSchedule":vacxinScheduleChoose.id,
-        "content":"Thanh toán đăng ký lịch tiêm",
-        "returnUrl":"http://localhost:3000/thong-bao",
-        "notifyUrl":"http://localhost:3000/thong-bao",
-    }
-
-    var res = await postMethodPayload('/api/payment/customer/create-url-payment', payment)
+    var res = await postMethodPayload('/api/customer-schedule/customer/create', lichtiem)
     if (res.status < 300) {
-        var result = await res.json();
-        window.open(result.url, '_blank');
+        Swal.fire({
+            title: "Thông báo",
+            text: "Đã đăng ký lịch tiêm thành công!",
+            preConfirm: () => {
+                // window.location.href = 'lich-tiem-chung'
+                window.location.reload();
+            }
+        });
     } else {
-        toast.error("Tạo link thanh toán thất bại");
+        if(res.status == 417){
+            var result = await res.json();
+            toast.error(result.defaultMessage);
+        }
+        else{
+            toast.error("Đăng ký lịch tiêm thất bại");
+        }
     }
 }
 

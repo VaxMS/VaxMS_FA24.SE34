@@ -52,7 +52,7 @@ function footer(){
             </section>
         </div>
       </footer>
-      
+     
      </>
     );
 }
